@@ -1,8 +1,9 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { ListDone, ListTodo } from "./";
-const Tab = createBottomTabNavigator();
+import ListDone from './listDone';
+import ListTodo from './todo';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 
+const Tab = createBottomTabNavigator();
 
 const BottomTab = () => {
   return (

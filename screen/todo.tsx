@@ -15,7 +15,11 @@ import EmptyTodo from './empty_todo';
 
 const ListTodo = ({ navigation }) => {
 
-  const { todo, handleDelete, handleDone } = useTodoStore();
+  const { todo, handleDelete, handleDone, importDb, db } = useTodoStore();
+
+  useEffect(() => {
+      importDb();
+    }, []);
 
   const navigateToNewTodo = () => {
     navigation.navigate("NewTodo"); // Navigate to the 'NewTodo' screen
@@ -28,7 +32,7 @@ const ListTodo = ({ navigation }) => {
 
         {todo.map(
           (
-            { title, description },
+            {id, title, description },
             index,
           ) => {
             return (
@@ -46,11 +50,10 @@ const ListTodo = ({ navigation }) => {
                     <View style={styles.cardTop}>
                       <TouchableOpacity
                         onPress={() => {
-                          const item = {title, description}
-                          handleDone(item, index);
+                          handleDone({id, title, description}, index, db);
                         }}>
                         <View
-                          style={[styles.cardLogo, { backgroundColor: '#000' }]}>
+                          style={[styles.cardLogo, { backgroundColor: '#cccccc' }]}>
                           <FeatherIcon color="#fff" name="meh" size={24} />
                         </View>
                       </TouchableOpacity>
@@ -62,7 +65,8 @@ const ListTodo = ({ navigation }) => {
 
                         <TouchableOpacity
                           onPress={() => {
-                            handleDelete(index)
+
+                            handleDelete(index, {id, title, description}, db)
                           }}>
                           <View style={styles.btnXS}>
 

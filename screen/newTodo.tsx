@@ -15,9 +15,10 @@ import { useTodoStore } from "../store/store";
 
 const NewTodo = ({navigation}) => {
   
-  const { handleSave } = useTodoStore();
+  const { handleSave, db } = useTodoStore();
 
   const [form, setForm] = useState({
+    id: 0,
     title: '',
     description: '',
   });
@@ -67,7 +68,7 @@ const NewTodo = ({navigation}) => {
             <View style={styles.formAction}>
               <TouchableOpacity
                 onPress={() => {
-                    handleSave(form);
+                    handleSave(form, db);
                     navigation.goBack();
                 }}>
                 <View style={styles.btn}>
@@ -101,6 +102,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#ffdada',
     marginBottom: 16,
+    marginTop: 16,
   },
   title: {
     fontSize: 34,
