@@ -7,14 +7,14 @@ The todo app helps me to introduce myself to React Native state management using
 Below are some commands to run the code:
 
 ```
-	npm install
-	npm run start
-
+npm install
+npm run start
 ```
  
- Install Expo-app and scan the QR code with your android device connected on the same network as the computer compiling the code.
+Install Expo-app and scan the QR code with your android device connected on the same network as the computer compiling the code.
 
- Some screenshots of the app:
+Some screenshots of the app:
 
- ![plot](./screenshot/407shots_so.png)
- ![plot](./screenshot/889shots_so.png)
+![plot](./screenshot/407shots_so.png)
+
+![plot](./screenshot/889shots_so.png)
